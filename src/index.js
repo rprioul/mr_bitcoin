@@ -24,16 +24,14 @@ rtm.on(CLIENT_EVENTS.RTM.AUTHENTICATED, (rtmStartData) => {
 
 rtm.on(RTM_EVENTS.MESSAGE, (message) => {
   if (message.text.toLowerCase() === "!bitcoin") {
-	  return new Promise((resolve) => {
-			request(reqOpts).then((body) => {
-				body = JSON.parse(body);
-				const text = 'On ' + body.time.updated + ' ' +', the Bitcoin value is `' + body.bpi.EUR.rate + ' €` or `' + body.bpi.USD.rate + ' $`.';
-				return(rtm.sendMessage(text, channel));
-			}) // request.then
-			.catch((err) => {
-				return console.error(`request for ${ reqOpts.url } failed: ${ err }`);
-			}); // request.catch
-		}); // new Promise
+	  request(reqOpts).then((body) => {
+			body = JSON.parse(body);
+			const text = 'On ' + body.time.updated + ' ' +', the Bitcoin value is `' + body.bpi.EUR.rate + ' €` or `' + body.bpi.USD.rate + ' $`.';
+			return(rtm.sendMessage(text, channel));
+		}) // request.then
+		.catch((err) => {
+			return console.error(`request for ${ reqOpts.url } failed: ${ err }`);
+		}); // request.catch
 	} // if
 }); // rtm.on(message)
 
