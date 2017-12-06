@@ -1,5 +1,6 @@
 const {
   RtmClient,
+  WebCLient,
   CLIENT_EVENTS,
   RTM_EVENTS,
 } = require('@slack/client');
