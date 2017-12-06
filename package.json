@@ -1,0 +1,16 @@
+{
+  "name": "ebm_td_slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^3.14.2",
+    "request-promise": "^4.2.2"
+  }
+}
